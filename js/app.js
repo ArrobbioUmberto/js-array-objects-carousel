@@ -35,7 +35,8 @@ const images = [
 ];
 const playEL = document.getElementById('play')
 const stopEl = document.getElementById('stop')
-const repeatEL = document.getElementById('repeat')
+// const repeatEL = document.getElementById('repeat')
+const reverseEl = document.getElementById('reverse')
 
 
 
@@ -84,7 +85,24 @@ function autoplay(){
 		slideElements[currentIndex].classList.add('active')	
 	}	
 }
-
+// const slideElementsContrario = slideElements.map((el)=> {
+// 	const contrario = slideElements.reverse()
+// 	return contrario
+// }) 
+//  console.log(slideElementsContrario)
+// reverseEl.addEventListener('click',function(){
+// 	// quando clicco il bottone devo invertire l'ordine dell'array 
+// 	const slideElementsContrario = slideElements.map((el)=> {
+// 		const contrario = slideElements.reverse()
+// 		return contrario
+// 	}) 
+//  	console.log(slideElementsContrario)
+//  	currentIndex = nuovoIndice
+//  	// const slideAttiva = slideElements[currentIndex]
+//  	const nuovoIndice = slideElements[i].reverse()
+//  	console.log(nuovoIndice)
+//  	currentIndex = nuovoIndice
+//  })
 playEL.addEventListener('click',function(){
 	clickPlay = true
 	if (clickPlay){
@@ -92,9 +110,22 @@ playEL.addEventListener('click',function(){
 	}
 })
 stopEl.addEventListener('click',function(){
-	clickStop = true
+	clickPlay = false
 	clearInterval(intervalloAutoPlay)
 })
+// repeatEL.addEventListener('click',function(){
+// 	clickRepeat = true
+// 	if(clickRepeat){
+// 		slideElements[currentIndex].classList.remove('active')
+// 		currentIndex = 0
+// 		slideElements[currentIndex].classList.add('active')	
+// 	}
+// })
+
+// Per il tasto di reverse devo invertire i due valori che inserisco per il play 
+// il tutto messo all'interno del bottone che fa partire questa cosa 
+
+
 
 
 // RECUPERATO I DUE CONTROLLI
