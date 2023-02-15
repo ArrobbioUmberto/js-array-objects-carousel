@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.slide img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 16/9;  
+}
+.slide{
+    display: none;
+}
+.slide.active {
+    display: block;
+}
+.carousel__structure{
+    position: relative;
+}
+.carousel__arrows__i .carousel__arrow {
+	position: absolute;
+	font-size: 40px;
+	color: white;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.carousel__arrow.arrow-left {
+	left: 20px;
+}
+
+.carousel__arrow.arrow-right {
+	right: 20px;
+}
