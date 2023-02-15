@@ -69,27 +69,30 @@ for (let i = 0; i < images.length; i++) {
 
 // RECUPERATO LE SLIDE DEL CAROSELLO
 let slideElements = document.querySelectorAll('.slide')
-
-
+intervalloAutoPlay = setInterval(autoplay,3000)
+function autoplay(){
+	const lastIndex = slideElements.length - 1
+	if(currentIndex < lastIndex){
+		console.log(currentIndex,lastIndex)
+		slideElements[currentIndex].classList.remove('active')
+		currentIndex = currentIndex + 1
+		console.log(currentIndex)
+		slideElements[currentIndex].classList.add('active')
+	} else if (currentIndex = lastIndex){
+		slideElements[currentIndex].classList.remove('active')
+		currentIndex = 0
+		slideElements[currentIndex].classList.add('active')	
+	}	
+}
 
 playEL.addEventListener('click',function(){
-	const intervalloAutoPlay = setInterval(autoplay, 3000)
-		function autoplay(){
-		const lastIndex = slideElements.length - 1
-		if(currentIndex < lastIndex){
-			console.log(currentIndex,lastIndex)
-			slideElements[currentIndex].classList.remove('active')
-			currentIndex = currentIndex + 1
-			console.log(currentIndex)
-			slideElements[currentIndex].classList.add('active')
-		} else if (currentIndex = lastIndex){
-			slideElements[currentIndex].classList.remove('active')
-			currentIndex = 0
-			slideElements[currentIndex].classList.add('active')	
-		}	
+	clickPlay = true
+	if (clickPlay){
+		intervalloAutoPlay = setInterval(autoplay,3000)
 	}
 })
 stopEl.addEventListener('click',function(){
+	clickStop = true
 	clearInterval(intervalloAutoPlay)
 })
 
