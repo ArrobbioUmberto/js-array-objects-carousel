@@ -4,7 +4,6 @@
 
 
 
-
 let currentIndex = 0
 
 // RECUPERIAMO DAL DOM IL CAROSELLO DOVE INSERIRE LE SLIDES
@@ -34,6 +33,13 @@ const images = [
         text: 'Marvel\'s Avengers is an epic, third-person, action-adventure game that combines an original, cinematic story with single-player and co-operative gameplay.',
     }
 ];
+const playEL = document.getElementById('play')
+const stopEl = document.getElementById('stop')
+const repeatEL = document.getElementById('repeat')
+
+
+
+
 
 
 for (let i = 0; i < images.length; i++) {
@@ -62,9 +68,31 @@ for (let i = 0; i < images.length; i++) {
     }
 
 // RECUPERATO LE SLIDE DEL CAROSELLO
-let slideElements = document.querySelectorAll('.carosello .slide')
-// slideElements = [...slideElements]
-console.log(slideElements)
+let slideElements = document.querySelectorAll('.slide')
+
+
+
+playEL.addEventListener('click',function(){
+	const intervalloAutoPlay = setInterval(autoplay, 3000)
+		function autoplay(){
+		const lastIndex = slideElements.length - 1
+		if(currentIndex < lastIndex){
+			console.log(currentIndex,lastIndex)
+			slideElements[currentIndex].classList.remove('active')
+			currentIndex = currentIndex + 1
+			console.log(currentIndex)
+			slideElements[currentIndex].classList.add('active')
+		} else if (currentIndex = lastIndex){
+			slideElements[currentIndex].classList.remove('active')
+			currentIndex = 0
+			slideElements[currentIndex].classList.add('active')	
+		}	
+	}
+})
+stopEl.addEventListener('click',function(){
+	clearInterval(intervalloAutoPlay)
+})
+
 
 // RECUPERATO I DUE CONTROLLI
 const arrowLeftElement = document.getElementById('arrow-left')
