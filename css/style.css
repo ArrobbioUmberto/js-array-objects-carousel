@@ -15,21 +15,21 @@
 .slide.active {
     display: block;
 }
-.carousel__structure{
+.carosello{
     position: relative;
 }
-.carousel__arrows__i .carousel__arrow {
+.carosello .carousel__arrow {
 	position: absolute;
 	font-size: 40px;
-	color: white;
+	color: red;
 	top: 50%;
 	transform: translateY(-50%);
 }
 
-.carousel__arrow.arrow-left {
+.carosello .carousel__arrow.arrow-left {
 	left: 20px;
 }
 
-.carousel__arrow.arrow-right {
+.carosello .carousel__arrow.arrow-right {
 	right: 20px;
 }

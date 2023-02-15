@@ -3,89 +3,90 @@
 
 
 
-let picture = ['./img/img1.jpeg', './img/img2.jpeg', './img/img3.jpeg', './img/img4.webp', './img/img5.jpg', './img/img6.webp']
-
-const slideElements = document.querySelectorAll('.carousel .slide')
-console.log(slideElements)
-const arrowElementRight = document.querySelector('.arrow-right')
-console.log(arrowElementRight)
-const arrowElementLeft = document.querySelector('.arrow-left')
-console.log(arrowElementLeft)
-
-let indiceSlideAttiva = 0
-
-// milestone 2 Al click dell’utente sulle frecce (una a sinistra e una a destra), il programma cambierà l’immagine attiva, 
-// che quindi verrà visualizzata al posto della precedente. Attenzione quando arriviamo all’ultima slide e 
-// clicchiamo sulla freccia destra, o viceversa se siamo sulla prima e clicchiamo sulla freccia sinistra.
-let  carousel = document.querySelector('.carousel')
+let images = ['./img/01.webp','./img/02.webp','./img/03.webp','./img/04.webp','./img/05.webp']
 
 
-arrowElementRight.addEventListener('click', function () {
+let currentIndex = 0
 
-	if (indiceSlideAttiva > 0){
-		console.log('current slide', indiceSlideAttiva)
-		// avendo inserito il ciclo for che genera l'HTML non mi definisce più la parte di slide.corrente 
-			let slideCorrente = slideElements[indiceSlideAttiva]
-			console.log(slideCorrente)
-			// togliendo la classe active
-			slideCorrente.classList.remove('active')
-		
-			// incremento l'indice
-			indiceSlideAttiva += 1
-		
-			let prossimaSlide = slideElements[indiceSlideAttiva]
-			// aggiungiamo la classe active alla seconda slide
-			prossimaSlide.classList.add('active')
-		
-		
-			console.log('next slide', indiceSlideAttiva)
-	}
-   
-})
-arrowElementLeft.addEventListener('click', function(){
-    console.log('current slide', indiceSlideAttiva)
+// RECUPERIAMO DAL DOM IL CAROSELLO DOVE INSERIRE LE SLIDES
+const carosello = document.querySelector('.carosello')
+console.log(carosello)
 
-	if (indiceSlideAttiva < slideElements.lenght - 1) {
-		
-		let slideCorrente = slideElements[indiceSlideAttiva]
-		// togliendo la classe active
-		slideCorrente.classList.remove('active')
-	
-		// inremento l'indice
-		indiceSlideAttiva -= 1
-	
-		let prossimaSlide = slideElements[indiceSlideAttiva]
-		// aggiungiamo la classe active alla seconda slide
-		prossimaSlide.classList.add('active')
-	
-		console.log('next slide', indiceSlideAttiva)
+for (let i = 0; i < images.length; i++) {
+	const srcImage = images[i]
+	console.log(srcImage)
+
+	let className = 'slide'
+	if (i === currentIndex) {
+		className += ' active'
 	}
 
-	
-})
+	const htmlSlide = `
+    <div class="${className}">
+      <img src="${srcImage}" alt="">
+    </div>
+  `
 
-for (i = 0; i < picture.length; i++){
-    let slide = document.createElement('div')
-    slide.classList.add('slide')
-    if (i=0){
-        slide.classList.add('active')
-    }
-
-    let image = document.createElement('img')
-    image.src = picture[i]
-    slide.appendChild(image)
-    carousel.appendChild(slide)
+	carosello.innerHTML += htmlSlide
 }
 
+// RECUPERATO LE SLIDE DEL CAROSELLO
+let slideElements = document.querySelectorAll('.carosello .slide')
+// slideElements = [...slideElements]
+console.log(slideElements)
 
-// Adesso rimuoviamo tutto il markup statico e inseriamo tutte le immagini dinamicamente servendoci dell’array fornito per generare 
-// il markup delle slide potete usare la concatenazione delle stringe, il template literal o il metodo createElement… a voi la scelta.
-// Nel generare il markup fate attenzione che solo una delle 5 slide deve avere la classe active e risultare quindi visibile…
+// RECUPERATO I DUE CONTROLLI
+const arrowLeftElement = document.getElementById('arrow-left')
+const arrowRightElement = document.getElementById('arrow-right')
 
+console.log(arrowLeftElement, arrowRightElement)
 
-// ciclo delle immagini che devono scorrere 
+// slideElements[currentIndex].classList.add('active')
 
+//AGGANCIAMO GLI EVENT LISTENER AI CONTROLLI
+arrowLeftElement.addEventListener('click', function () {
+	console.log('prev slide')
 
+	//nascondere la slide attiva
+	console.log(slideElements[currentIndex])
+	slideElements[currentIndex].classList.remove('active')
 
+	if (currentIndex > 0) {
+		currentIndex--
+	} else {
+		currentIndex = slideElements.length - 1 //last index
+	}
+
+	// mostrare la slide precedente
+	console.log(slideElements[currentIndex])
+	slideElements[currentIndex].classList.add('active')
+	// aggiornare il currentIndex
+})
+
+arrowRightElement.addEventListener('click', function () {
+	console.log('next slide')
+	console.log(currentIndex)
+
+	const lastIndex = slideElements.length - 1
+
+	// if (currentIndex < lastIndex) {
+	// nascondere la slide attiva
+	console.log(slideElements[currentIndex])
+	slideElements[currentIndex].classList.remove('active')
+
+	if (currentIndex < lastIndex) {
+		currentIndex += 1
+	} else {
+		currentIndex = 0
+	}
+
+	// mostrare la slide successiva
+	console.log(slideElements[currentIndex])
+	slideElements[currentIndex].classList.add('active')
+
+	// aggiornare il currentIndex
+
+	// }
+})
 
 
