@@ -52,11 +52,13 @@ for (let i = 0; i < images.length; i++) {
 	console.log(games.image)
 
 	// al posto del for si può ottenere la stessa cosa con il foe each
-
-	// images.forEach((image,index)=> {
-	// 	const {image,text,title} = games
+    // questa fase appena fatta poteva essere creata anche con la destrutturazione 
+	// images.forEach((el,index)=> {
+	// 	const {image,text,title} = el
+	// 	console.log(images)
 	// 	let className = 'slide'
-	//     if (i === currentIndex) {
+	// 	console.log(el,index,images,currentIndex)
+	//     if (currentIndex === index) {
 	// 	className += ' active'
 	//     }
 	// 	const htmlSlide = `
@@ -69,12 +71,8 @@ for (let i = 0; i < images.length; i++) {
     //     </div>
     //   `
 	//   carosello.innerHTML += htmlSlide
-	//   console.log(index,slide)
+	//   console.log(index,el)
 	// })
-
-	// questa fase appena fatta poteva essere creata anche con la destrutturazione 
-
-	// const { image,text,title} = games
 
 	let className = 'slide'
 	if (i === currentIndex) {
