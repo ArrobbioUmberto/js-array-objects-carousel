@@ -51,6 +51,31 @@ for (let i = 0; i < images.length; i++) {
 	console.log(games)
 	console.log(games.image)
 
+	// al posto del for si può ottenere la stessa cosa con il foe each
+
+	// images.forEach((image,index)=> {
+	// 	const {image,text,title} = games
+	// 	let className = 'slide'
+	//     if (i === currentIndex) {
+	// 	className += ' active'
+	//     }
+	// 	const htmlSlide = `
+    //     <div class="${className}">
+	// 	    <img src="${image}" alt="">
+	// 	    <div class="description">
+	// 	      <h2 id="title" class="title">${title}</h2> 
+	// 	      <p  id="text" class="text" >${text}</p>
+	// 	    </div>
+    //     </div>
+    //   `
+	//   carosello.innerHTML += htmlSlide
+	//   console.log(index,slide)
+	// })
+
+	// questa fase appena fatta poteva essere creata anche con la destrutturazione 
+
+	// const { image,text,title} = games
+
 	let className = 'slide'
 	if (i === currentIndex) {
 		className += ' active'
@@ -61,42 +86,52 @@ for (let i = 0; i < images.length; i++) {
 		    <img src="${image}" alt="">
 		    <div class="description">
 		      <h2 id="title" class="title">${title}</h2> 
-		      <p  id="text" >${text}</p>
+		      <p  id="text" class="text" >${text}</p>
 		    </div>
         </div>
       `
 
 	carosello.innerHTML += htmlSlide
-	let titleEL = document.getElementById('title')
-    let textEL = document.getElementById('text')
-	console.log(textEL,titleEL)
-	switch (games.image) {
-		case './img/01.webp':
-			titleEL.classList.add('spiderman-title')
-			textEL.classList.add('spiderman-text')
-			console.log(textEL)
-			break
-		case './img/02.webp':
-			titleEL.classList.add('spiderman-title')
-			textEL.classList.add('spiderman-text')
-			console.log(textEL)
-			break
-		case './img/03.webp':
-			titleEL.classList.add('spiderman-title')
-			textEL.classList.add('spiderman-text')
-			console.log(textEL)
-			break
-		case './img/04.webp':
-			titleEL.classList.add('spiderman-title')
-			textEL.classList.add('spiderman-text')
-			console.log(textEL)
-			break
-		case './img/05.webp':
-			titleEL.classList.add('spiderman-title')
-			textEL.classList.add('spiderman-text')
-			console.log(textEL)
-			break
-	}
+	// let titleEL = document.getElementById('title')
+    // let textEL = document.getElementById('text')
+	// console.log(textEL,titleEL)
+	// switch (games.image) {
+	// 	case './img/01.webp':
+	// 		titleEL.classList.remove('rachet-title','fortnite-title','stray-title','avengers-title')
+	// 		titleEL.classList.add('spiderman-title')
+	// 	    textEL.classList.remove('rachet-title','fortnite-title','stray-title','avengers-title')
+	// 		textEL.classList.add('spiderman-text')
+	// 		console.log(textEL)
+	// 		break
+	// 	case './img/02.webp':
+	// 		titleEL.classList.remove('spiderman-title','fortnite-title','stray-title','avengers-title')
+	// 		titleEL.classList.add('rachet-title')
+	// 		textEL.classList.remove('spiderman-title','fortnite-title','stray-title','avengers-title')
+	// 		textEL.classList.add('rachet-text')
+	// 		console.log(textEL)
+	// 		break
+	// 	case './img/03.webp':
+	// 		titleEL.classList.remove('rachet-title','spiderman-title','stray-title','avengers-title')
+	// 		titleEL.classList.add('fortnite-title')
+	// 		textEL.classList.remove('rachet-title','spiderman-title','stray-title','avengers-title')
+	// 		textEL.classList.add('fortnite-text')
+	// 		console.log(textEL)
+	// 		break
+	// 	case './img/04.webp':
+	// 		titleEL.classList.remove('rachet-title','fortnite-title','spiderman-title','avengers-title')
+	// 		titleEL.classList.add('stray-title')
+	// 		textEL.classList.remove('rachet-title','fortnite-title','spiderman-title','avengers-title')
+	// 		textEL.classList.add('stray-text')
+	// 		console.log(textEL)
+	// 		break
+	// 	case './img/05.webp':
+	// 		titleEL.classList.remove('rachet-title','fortnite-title','stray-title','spiderman-title')
+	// 		titleEL.classList.add('avengers-title')
+	// 		textEL.classList.remove('rachet-title','fortnite-title','stray-title','spiderman-title')
+	// 		textEL.classList.add('avengers-text')
+	// 		console.log(textEL)
+	// 		break
+	// }
 }
 
 
