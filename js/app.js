@@ -92,57 +92,11 @@ for (let i = 0; i < images.length; i++) {
       `
 
 	carosello.innerHTML += htmlSlide
-	// let titleEL = document.getElementById('title')
-    // let textEL = document.getElementById('text')
-	// console.log(textEL,titleEL)
-	// switch (games.image) {
-	// 	case './img/01.webp':
-	// 		titleEL.classList.remove('rachet-title','fortnite-title','stray-title','avengers-title')
-	// 		titleEL.classList.add('spiderman-title')
-	// 	    textEL.classList.remove('rachet-title','fortnite-title','stray-title','avengers-title')
-	// 		textEL.classList.add('spiderman-text')
-	// 		console.log(textEL)
-	// 		break
-	// 	case './img/02.webp':
-	// 		titleEL.classList.remove('spiderman-title','fortnite-title','stray-title','avengers-title')
-	// 		titleEL.classList.add('rachet-title')
-	// 		textEL.classList.remove('spiderman-title','fortnite-title','stray-title','avengers-title')
-	// 		textEL.classList.add('rachet-text')
-	// 		console.log(textEL)
-	// 		break
-	// 	case './img/03.webp':
-	// 		titleEL.classList.remove('rachet-title','spiderman-title','stray-title','avengers-title')
-	// 		titleEL.classList.add('fortnite-title')
-	// 		textEL.classList.remove('rachet-title','spiderman-title','stray-title','avengers-title')
-	// 		textEL.classList.add('fortnite-text')
-	// 		console.log(textEL)
-	// 		break
-	// 	case './img/04.webp':
-	// 		titleEL.classList.remove('rachet-title','fortnite-title','spiderman-title','avengers-title')
-	// 		titleEL.classList.add('stray-title')
-	// 		textEL.classList.remove('rachet-title','fortnite-title','spiderman-title','avengers-title')
-	// 		textEL.classList.add('stray-text')
-	// 		console.log(textEL)
-	// 		break
-	// 	case './img/05.webp':
-	// 		titleEL.classList.remove('rachet-title','fortnite-title','stray-title','spiderman-title')
-	// 		titleEL.classList.add('avengers-title')
-	// 		textEL.classList.remove('rachet-title','fortnite-title','stray-title','spiderman-title')
-	// 		textEL.classList.add('avengers-text')
-	// 		console.log(textEL)
-	// 		break
-	// }
+	
 }
-
-
-// console.log(images.length,images)
-// let immaginiContrario = ''
-// let immaginiContrario = images.forEach(element => {
-// 	const reverse = images.reverse()
-// 	immaginiContrario.push(reverse)
-// });
 // console.log(immaginiContrario)
 // RECUPERATO LE SLIDE DEL CAROSELLO
+let direction = 'right'
 let slideElements = document.querySelectorAll('.slide')
 intervalloAutoPlay = setInterval(autoplay,3000)
 function autoplay(){
@@ -158,29 +112,6 @@ function autoplay(){
 	slideElements[currentIndex].classList.add('active')
 }
 
-// intervalloreversePlay = setInterval(reverseplay,3000)
-
-// reverseEl.addEventListener('click',function(){
-// 	clickPlay = false
-// 	if(clickPlay === false){
-// 		intervalloreversePlay = setInterval(reverseplay,3000)
-// 		function reverseplay (){
-// 			let lastIndex = slideElements.length - 1
-// 			if(currentIndex < lastIndex){
-// 				console.log(currentIndex,lastIndex)
-// 				slideElements[lastIndex].classList.remove('active')
-// 				lastIndex = lastIndex -1 
-// 				console.log(lastIndex)
-// 				slideElements[lastIndex].classList.add('active')
-// 			} else if (currentIndex = lastIndex){
-// 				slideElements[lastIndex].classList.remove('active')
-// 				lastIndex = slideElements -1
-// 				console.log(lastIndex)
-// 				slideElements[lastIndex].classList.add('active')
-// 			}
-// 		}
-// 	}
-//  })
 playEL.addEventListener('click',function(){
 	clickPlay = true
 	if (clickPlay){
@@ -190,8 +121,10 @@ playEL.addEventListener('click',function(){
 stopEl.addEventListener('click',function(){
 	clickPlay = false
 	clearInterval(intervalloAutoPlay)
-	// clearInterval(intervalloreversePlay)
 })
+
+// nel caso si volesse avere un tasto per far ripartire lo scroll dalla prima slide 
+
 // repeatEL.addEventListener('click',function(){
 // 	clickRepeat = true
 // 	if(clickRepeat){
