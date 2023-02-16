@@ -147,17 +147,15 @@ let slideElements = document.querySelectorAll('.slide')
 intervalloAutoPlay = setInterval(autoplay,3000)
 function autoplay(){
 	let lastIndex = slideElements.length - 1
+	slideElements[currentIndex].classList.remove('active')
 	if(currentIndex < lastIndex){
-		console.log(currentIndex,lastIndex)
-		slideElements[currentIndex].classList.remove('active')
+		// console.log(currentIndex,lastIndex)
 		currentIndex = currentIndex + 1
-		console.log(currentIndex)
-		slideElements[currentIndex].classList.add('active')
+		// console.log(currentIndex)
 	} else if (currentIndex = lastIndex){
-		slideElements[currentIndex].classList.remove('active')
-		currentIndex = 0
-		slideElements[currentIndex].classList.add('active')	
+		currentIndex = 0	
 	}	
+	slideElements[currentIndex].classList.add('active')
 }
 
 // intervalloreversePlay = setInterval(reverseplay,3000)
