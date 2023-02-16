@@ -6,6 +6,7 @@
 
 let currentIndex = 0
 
+
 // RECUPERIAMO DAL DOM IL CAROSELLO DOVE INSERIRE LE SLIDES
 const carosello = document.querySelector('.carosello')
 console.log(carosello)
@@ -42,37 +43,75 @@ const reverseEl = document.getElementById('reverse')
 
 
 
-
 for (let i = 0; i < images.length; i++) {
-    	const games = images[i]
-        const image = games.image 
-        const title = games.title
-        const text = games.text
-    	console.log(games)
-    
-    	let className = 'slide'
-    	if (i === currentIndex) {
-    		className += ' active'
-    	}
-    
-    	const htmlSlide = `
+	const games = images[i]
+	const image = games.image
+	const title = games.title
+	const text = games.text
+	console.log(games)
+	console.log(games.image)
+
+	let className = 'slide'
+	if (i === currentIndex) {
+		className += ' active'
+	}
+
+	const htmlSlide = `
         <div class="${className}">
 		    <img src="${image}" alt="">
 		    <div class="description">
-		      <h2 class="title">${title}</h2> 
-		      <p class="text">${text}</p>
+		      <h2 id="title" class="title">${title}</h2> 
+		      <p  id="text" >${text}</p>
 		    </div>
         </div>
       `
-    
-    	carosello.innerHTML += htmlSlide
-    }
 
+	carosello.innerHTML += htmlSlide
+	let titleEL = document.getElementById('title')
+    let textEL = document.getElementById('text')
+	console.log(textEL,titleEL)
+	switch (games.image) {
+		case './img/01.webp':
+			titleEL.classList.add('spiderman-title')
+			textEL.classList.add('spiderman-text')
+			console.log(textEL)
+			break
+		case './img/02.webp':
+			titleEL.classList.add('spiderman-title')
+			textEL.classList.add('spiderman-text')
+			console.log(textEL)
+			break
+		case './img/03.webp':
+			titleEL.classList.add('spiderman-title')
+			textEL.classList.add('spiderman-text')
+			console.log(textEL)
+			break
+		case './img/04.webp':
+			titleEL.classList.add('spiderman-title')
+			textEL.classList.add('spiderman-text')
+			console.log(textEL)
+			break
+		case './img/05.webp':
+			titleEL.classList.add('spiderman-title')
+			textEL.classList.add('spiderman-text')
+			console.log(textEL)
+			break
+	}
+}
+
+
+// console.log(images.length,images)
+// let immaginiContrario = ''
+// let immaginiContrario = images.forEach(element => {
+// 	const reverse = images.reverse()
+// 	immaginiContrario.push(reverse)
+// });
+// console.log(immaginiContrario)
 // RECUPERATO LE SLIDE DEL CAROSELLO
 let slideElements = document.querySelectorAll('.slide')
 intervalloAutoPlay = setInterval(autoplay,3000)
 function autoplay(){
-	const lastIndex = slideElements.length - 1
+	let lastIndex = slideElements.length - 1
 	if(currentIndex < lastIndex){
 		console.log(currentIndex,lastIndex)
 		slideElements[currentIndex].classList.remove('active')
@@ -85,23 +124,29 @@ function autoplay(){
 		slideElements[currentIndex].classList.add('active')	
 	}	
 }
-// const slideElementsContrario = slideElements.map((el)=> {
-// 	const contrario = slideElements.reverse()
-// 	return contrario
-// }) 
-//  console.log(slideElementsContrario)
+
+// intervalloreversePlay = setInterval(reverseplay,3000)
+
 // reverseEl.addEventListener('click',function(){
-// 	// quando clicco il bottone devo invertire l'ordine dell'array 
-// 	const slideElementsContrario = slideElements.map((el)=> {
-// 		const contrario = slideElements.reverse()
-// 		return contrario
-// 	}) 
-//  	console.log(slideElementsContrario)
-//  	currentIndex = nuovoIndice
-//  	// const slideAttiva = slideElements[currentIndex]
-//  	const nuovoIndice = slideElements[i].reverse()
-//  	console.log(nuovoIndice)
-//  	currentIndex = nuovoIndice
+// 	clickPlay = false
+// 	if(clickPlay === false){
+// 		intervalloreversePlay = setInterval(reverseplay,3000)
+// 		function reverseplay (){
+// 			let lastIndex = slideElements.length - 1
+// 			if(currentIndex < lastIndex){
+// 				console.log(currentIndex,lastIndex)
+// 				slideElements[lastIndex].classList.remove('active')
+// 				lastIndex = lastIndex -1 
+// 				console.log(lastIndex)
+// 				slideElements[lastIndex].classList.add('active')
+// 			} else if (currentIndex = lastIndex){
+// 				slideElements[lastIndex].classList.remove('active')
+// 				lastIndex = slideElements -1
+// 				console.log(lastIndex)
+// 				slideElements[lastIndex].classList.add('active')
+// 			}
+// 		}
+// 	}
 //  })
 playEL.addEventListener('click',function(){
 	clickPlay = true
@@ -112,6 +157,7 @@ playEL.addEventListener('click',function(){
 stopEl.addEventListener('click',function(){
 	clickPlay = false
 	clearInterval(intervalloAutoPlay)
+	// clearInterval(intervalloreversePlay)
 })
 // repeatEL.addEventListener('click',function(){
 // 	clickRepeat = true
